@@ -96,7 +96,7 @@ public class Main {
 	private static String[] collectInput() {
 
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter a command: ");
+		System.out.println("Enter a command (\"go\" + \" \" +  direction): ");
 		String in = sc.nextLine();	
 		
 		String first = in.substring(0, in.indexOf(" "));
