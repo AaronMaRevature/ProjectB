@@ -22,6 +22,32 @@ public class RoomManager {
 			+ "To the north is a small room, where you can see a piano.");
 			this.rooms[0] = foyer;
 	        this.startingRoom = foyer;
+	        
+	        
+	    Room anotherRoom = new Room(
+					"Another Room",
+					"it's another room",
+					"It's another room that's connected to the foyer");
+					this.rooms[1] = anotherRoom;
+
+					// Connect this to the foyer
+					foyer.getExits()[0] = anotherRoom;    // another room is north of foyer
+					anotherRoom.getExits()[2] = foyer;      //  foyer is south of another room
+	        
+	    Room southRoom = new Room(
+							"Aouth Room",
+							"it's the South room",
+							"It's another room that's connected to the foyer");
+							this.rooms[2] = southRoom;
+
+							// Connect this to the foyer
+							foyer.getExits()[2] = southRoom;    // another room is north of foyer
+							southRoom.getExits()[0] = foyer;      //  foyer is south of another room				
+					
+					
+					
+					
+					
 	}
 	
 	
