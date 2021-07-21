@@ -1,37 +1,75 @@
 package fixtures;
+import java.util.*;
+
 
 public class Room extends Fixture{
 
 	
-	Room[] exits = null;
+
+	
+	Map<String, Room> exits = null;
+	private Map<String, Boolean> doors = null;
 	
 	
-	public Room(String name, String shortDescription, String longDescription) {
+	
+	private String item = null;      // Item of interest
+	
+	
+	
+	
+	public Room(String name, String shortDescription, String longDescription, String item) {
 		super(name, shortDescription, longDescription);
-		this.exits = new Room[4]; // size is your choice
+		this.exits = new HashMap<String, Room>();
+		this.setDoors(new HashMap<String, Boolean>());
+		
+		// Initialize doors to all false
+		this.getDoors().put("north", false);
+		this.getDoors().put("east", false);
+		this.getDoors().put("south", false);
+		this.getDoors().put("west", false);
+		
+		
+		this.setItem(item);
 	}
 		
-	public Room[] getExits() {
+	
+	
+	public Map<String, Room> getExits() {
 		return this.exits;
 	}
 		
 	public Room getExit(String direction) {
 		
-		switch (direction) {
 		
-			case "north":
-				return this.exits[0];
-			case "east":
-				return this.exits[1];
-			case "south":
-				return this.exits[2];
-			case "west":
-				return this.exits[3];
-		}
+		return this.exits.get(direction);
 		
-		return null;
+
 		
 		
+	}
+
+
+
+	public Map<String, Boolean> getDoors() {
+		return doors;
+	}
+
+
+
+	public void setDoors(Map<String, Boolean> doors) {
+		this.doors = doors;
+	}
+
+
+
+	public String getItem() {
+		return item;
+	}
+
+
+
+	public void setItem(String item) {
+		this.item = item;
 	}
 	
 	
